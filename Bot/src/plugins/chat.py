@@ -22,7 +22,7 @@ async def fuck_mao(bot: Bot, event: Event, state:T_State):
     gid = event.group_id
     uid = "2733405958"
     faceid = str(random.randint(0,200))
-    msg = "[CQ:at,qq=%s][CQ:face,id=%s]sb"%(uid,faceid)
+    msg = "[CQ:at,qq=%s][CQ:face,id=%s]帅逼"%(uid,faceid)
     await bot.send_group_msg(group_id=gid, message=msg,auto_escape=False)
 
 
@@ -42,11 +42,12 @@ se = on_command("色图",aliases={"涩图","色","涩"},priority=3)
 async def setu(bot: Bot, event: Event, state:T_State):
     gid = event.group_id
     uid = event.get_user_id()
-    iid = str(random.randint(0,30))
+    iid = str(random.randint(1,21))
     at = "[CQ:at,qq=%s]"%uid
-    msg = "[CQ:image,file=file:///D:\KSBot\KSbot\image\setu\%s.png]"%iid
+    msg = "[CQ:image,file=file:///D:\KSBot\KSbot\image\setu\(%s).png]"%iid
 #    await bot.send_group_msg(group_id=gid, message=at,auto_escape=False)
-    await bot.send_group_msg(group_id=gid, message=msg,auto_escape=False)
+    mid = await bot.send_group_msg(group_id=gid, message=msg,auto_escape=False)
+    # print(type(mid))
 
 
 fun = on_command("功能",priority=1)
@@ -64,7 +65,7 @@ async def fun_list(bot:Bot,event:Event,state:T_State):
         msg += "-%s----%s\n"%(item[0],item[1])
     await bot.send_group_msg(group_id = gid,message = msg)
 
-bot_name = on_keyword(["机器人","章鱼","bot"],priority=1)
+bot_name = on_keyword(["机器人","章鱼","bot"],priority=5)
 @bot_name.handle()
 async def botnc(bot:Bot,event:Event,state:T_State):
     gid = event.group_id
